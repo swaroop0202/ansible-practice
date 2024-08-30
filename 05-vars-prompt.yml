@@ -4,10 +4,10 @@
   vars_prompt:
   - name: NAME
     prompt: please mention name
-    privacy: false
+    private: false
   - name: COURSE
     prompt: please mention course
-    privacy: true
+    private: true
   tasks:
   - name: variables
     ansible.builtin.debug:
