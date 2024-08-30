@@ -1,6 +1,9 @@
 - name: play-1
   hosts: web
+  vars:
+    name: "swaroop"
+    course: "devops with aws"
   tasks:
   - name: variables
     ansible.builtin.debug:
-      msg: "my name is swaroop, am learning devops with aws"
+      msg: "my name is {{name}}, am learning {{course}}"
