@@ -1,7 +1,8 @@
 - name: play-1
   hosts: web
   become: yes
-  vars_prompt:
+  vars_files:
+  - 03-vars-files.yml
   tasks:
   - name: variables
     ansible.builtin.debug:

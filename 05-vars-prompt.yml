@@ -1,0 +1,14 @@
+- name: play-1
+  hosts: web
+  become: yes
+  vars_prompt:
+  - name: NAME
+    prompt: please mention name
+    privacy: false
+  - name: COURSE
+    prompt: please mention course
+    privacy: true
+  tasks:
+  - name: variables
+    ansible.builtin.debug:
+      msg: "my name is {{NAME}}, am learning {{COURSE}}"
