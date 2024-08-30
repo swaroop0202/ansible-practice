@@ -1,8 +1,6 @@
 - name: play-1
   hosts: web
-  vars:
-    name: "swaroop"
-    course: "devops with aws"
+  become: yes
   tasks:
   - name: variables
     ansible.builtin.debug:
