@@ -1,9 +1,8 @@
 - name: play-1
   hosts: web
   become: yes
-  vars_files:
-  - 03-vars-files.yml
-  tasks:
+  vars_prompt:
+    tasks:
   - name: variables
     ansible.builtin.debug:
       msg: "my name is {{name}}, am learning {{course}}"
