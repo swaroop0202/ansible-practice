@@ -2,7 +2,7 @@
   hosts: web
   become: yes
   vars_file:
-    03-vars-files.yml
+    - 03-vars-files.yml
   tasks:
   - name: variables
     ansible.builtin.debug:
