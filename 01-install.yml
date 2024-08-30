@@ -1,8 +1,8 @@
 - name: playbook-1
-  hosts: all
+  hosts: web
   become: yes
   tasks:
-    - name: installing nginx
-      ansible.builtin.package:
-        name: nginx
-        state: present
+  - name: installing nginx
+    ansible.builtin.package:
+      name: nginx
+      state: present
