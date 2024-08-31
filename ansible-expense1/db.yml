@@ -1,0 +1,16 @@
+- name: Configuring the DB server
+  hosts: db
+  become: true
+  vars:
+
+  tasks:
+  - name: Installing the Mysql-Server
+    ansible.builtin.package:
+      name: mysql-server
+      state: present
+  - name: Enabling and starting the server
+    ansible.builtin.service:
+      name: mysqld
+      state: started
+      enabled: yes
+  
