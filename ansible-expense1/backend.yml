@@ -6,7 +6,7 @@
     ansible.builtin.command: dnf module disable nodejs -y
   - name: enabling nodejs
     ansible.builtin.command: dnf module enable nodejs:20 -y
-  - name: installing nodejs
+  - name: installing nodejs and mysql
     dnf:
       name:
         - nodejs
@@ -37,4 +37,4 @@
       src: backend.service
       dest: /etc/systemd/system
   - name: loading schema
-    ansible.builtin.command: mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+    ansible.builtin.command: mysql -h 172.31.85.158 -uroot -pExpenseApp@1 < /app/schema/backend.sql
