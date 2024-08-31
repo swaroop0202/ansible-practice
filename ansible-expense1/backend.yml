@@ -36,5 +36,10 @@
     ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system
-  - name: loading schema
-    ansible.builtin.command: mysql -h 172.31.85.158 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+  - name: import data into mysql
+    community.mysql.mysql_db:
+      login_host: 172.31.85.158
+      login_user: root
+      login_password: ExpenseApp@1
+      state: import
+      target: /app/schema/backend.sql
