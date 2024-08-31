@@ -8,8 +8,11 @@
     ansible.builtin.command: dnf module enable nodejs:20 -y
   - name: installing nodejs
     ansible.builtin.dnf:
-      name: nodejs
+      name: {{ item }}
       state: present
+    loop:
+      - nodejs
+      - mysql
   - name: adding the user
     ansible.builtin.user:
       name: expense
@@ -30,3 +33,9 @@
     ansible.builtin.command: npm install 
     args:
       chdir: /app
+  - name: copying the servie file 
+    ansible.builtin.copy:
+      src: backend.service
+      dest: /etc/systemd/system
+  - name: loading schema
+    ansible.builtin.command: mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
