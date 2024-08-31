@@ -10,3 +10,19 @@
     ansible.builtin.dnf:
       name: nodejs
       state: present
+  - name: adding the user
+    ansible.builtin.user:
+      name: expense
+  - name: creating the directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
+  -  name: get the backend code
+     ansible.builtin.get_url:
+      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+      dest: /tmp/backend.zip
+  - name: unzip the backendcode
+    ansible.builtin.unarchive:
+      src: /tmp/backend.zip
+      dest: /tmp/backend.zip
+      remote_src: yes
