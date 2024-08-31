@@ -10,7 +10,6 @@
     ansible.builtin.service:
       name: nginx
       state: started    
-      enabled: yes
   - name: removing default contents
     ansible.builtin.file:
       path: /usr/share/nginx/html/
