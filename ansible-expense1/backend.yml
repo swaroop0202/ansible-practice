@@ -41,7 +41,7 @@
   - name: copying the servie file 
     ansible.builtin.copy:
       src: backend.service
-      dest: /etc/systemd/system
+      dest: /etc/systemd/system/backend.service
   - name: import data into mysql
     community.mysql.mysql_db:
       login_host: 172.31.85.158
