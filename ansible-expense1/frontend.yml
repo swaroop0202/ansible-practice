@@ -9,7 +9,8 @@
   - name: start nginx
     ansible.builtin.service:
       name: nginx
-      state: started    
+      state: started 
+      enabled: true   
   - name: removing default contents
     ansible.builtin.file:
       path: /usr/share/nginx/html/
@@ -26,11 +27,11 @@
     ansible.builtin.unarchive:
       src: /tmp/frontend.zip
       dest: /usr/share/nginx/html
-      remote_src: yes
+      remote_src: yes  
   - name: copying the servie file 
     ansible.builtin.copy:
       src: expense.conf
-      dest: /etc/nginx/default.d/expense.conf
+      dest: /etc/nginx/default.d/expense.conf  
   - name: restart nginx 
     ansible.builtin.service:
       name: nginx
