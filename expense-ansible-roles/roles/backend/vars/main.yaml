@@ -1,3 +1,5 @@
 db_host: 172.31.82.214 
 db_user: root
 db_password: ExpenseApp@1
+app_location: /app
+component: backend
