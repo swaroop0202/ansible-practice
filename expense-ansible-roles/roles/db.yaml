@@ -1,5 +1,5 @@
 - name: Configuring the DB server
-  hosts: db
+  hosts: db.masterdevops.store
   become: true
   roles:
   - db
