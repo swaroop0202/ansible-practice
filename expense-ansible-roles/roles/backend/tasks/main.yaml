@@ -9,7 +9,7 @@
     name:
     - nodejs
     - mysql
-  state: present
+    state: present
 
 - name: install python mysql dependencies
   ansible.builtin.pip:
