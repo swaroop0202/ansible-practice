@@ -16,7 +16,7 @@
     name:
     - PyMySQL
     - cryptography
-  executable: pip3.9 # pip3.11 if python version is 3.11
+    executable: pip3.9 # pip3.11 if python version is 3.11
 
 - name: adding the user
   ansible.builtin.user:
@@ -36,7 +36,7 @@
   ansible.builtin.unarchive:
     src: /tmp/backend.zip
     dest: /app
-  remote_src: yes
+    remote_src: yes
 
 - name: download the dependencies
   ansible.builtin.command: npm install 
